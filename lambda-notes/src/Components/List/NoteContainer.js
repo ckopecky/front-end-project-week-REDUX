@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Sidebar from '../Sidebar/Sidebar';
 import './NoteContainer.css';
 import { dummydata } from '../../dummydata/dummydata';
-import NoteCards from './NoteCards';
+import NoteCardList from './NoteCardList';
 import { connect } from 'react-redux';
 import { createNote, readNote, updateNote, deleteNote } from '../../JS/actions/index-a';
 
@@ -10,10 +10,9 @@ class NoteContainer extends Component {
 
     render(){
         return(
-            <div>
+            <div className = 'list-wrapper'>
             <Sidebar />
-            <div>hello</div>
-            <NoteCards />
+            <NoteCardList className = "card-container"/>
             </div>
         )
     }

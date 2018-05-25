@@ -2,18 +2,21 @@ import React from 'react';
 import { Card, CardTitle, CardText } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import './NoteCards.css';
+import './NoteCardList.css';
 
 
 const mapStateToProps = (state) => {
     return {notes: state.notes};
 };
 
-const NoteCards = ({notes})=>{
-    console.log({notes});
+const NoteCardList = (props)=>{
+    console.log("NOTES",props.notes[0].note);
     return(
-        <ul>
-            {notes.map(el => {
+        <div className = "note-wrapper">
+        <h1 className = "header">Your Notes:</h1>
+        <ul className = "card-container">
+            
+            {props.notes[0].note.map(el => {
                 return(
                  <Card  key={el.id} className = "card">
                  <CardTitle key={el.note_title} className = "card-title">
@@ -23,8 +26,9 @@ const NoteCards = ({notes})=>{
                 )
             })}
         </ul>
+        </div>
     );  
 }
-export default connect(mapStateToProps)(NoteCards);
+export default connect(mapStateToProps)(NoteCardList);
 
     
