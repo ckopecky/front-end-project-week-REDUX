@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Button, Modal, ModalHeader, ModalFooter } from 'reactstrap';
+import { Link } from 'react-router-dom';
 import './DeleteModal.css';
+import NoteContainer from '../List/NoteContainer';
+import NoteView from './NoteView';
 
 
 
@@ -26,8 +29,8 @@ class DeleteModal extends Component {
           <Modal isOpen={this.state.modal} toggle={this.toggle} className="delete-modal">
             <ModalHeader>Are you sure you want to delete this note?</ModalHeader>
             <ModalFooter>
-              <Button className = "delete-button" onClick={this.toggle}>Delete</Button>
-              <Button className = "cancel-button" onClick={this.toggle}>No</Button>
+              <Link to = "/list" component = {NoteContainer}><Button className = "delete-button" onClick={this.toggle}>Delete</Button></Link>
+              <Link to = "/list/number" component={NoteView}><Button className = "cancel-button" onClick={this.toggle}>No</Button></Link>
             </ModalFooter>
           </Modal>
         </div>
